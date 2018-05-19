@@ -9409,7 +9409,8 @@ a.skip-link {
 
 body {
   font-family: "Open Sans", sans-serif;
-  font-size: 1rem; }
+  font-size: 1rem;
+  overflow-x: hidden; }
 
 span, p, h2, h3, h4, h5, i, time, address {
   font-weight: 400;
@@ -9465,7 +9466,7 @@ ul, ol {
   color: #24469B; }
 
 .welcome-back {
-  background-color: #24469B; }
+  background-color: #091020; }
 
 .welcome-section {
   position: relative;
@@ -9489,6 +9490,7 @@ ul, ol {
   margin: 0 auto 1rem auto; }
 
 .read-more {
+  cursor: pointer;
   text-transform: uppercase;
   color: #fff;
   position: absolute;
@@ -9554,6 +9556,7 @@ ul, ol {
     width: 50%; } }
 
 .start-button {
+  cursor: pointer;
   font-size: 1.5rem;
   text-transform: uppercase;
   color: #24469B;
@@ -9620,3 +9623,80 @@ ul, ol {
 
 .copyright-block {
   background-color: #fff; }
+
+.div-template-pit {
+  background-color: #162D63; }
+
+.title-padding {
+  padding-top: 6rem; }
+  @media (min-width: 768px) {
+    .title-padding {
+      padding-top: 2rem; } }
+
+.padding-page {
+  padding-top: 12rem; }
+
+.page-template-title, .page-template-span {
+  font-size: 1.5rem;
+  color: #fff;
+  text-transform: uppercase; }
+
+.page-template-span:before {
+  content: " ";
+  display: block;
+  background-color: #fff;
+  height: 1px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 15rem; }
+
+.service-block {
+  position: absolute;
+  bottom: -8rem;
+  background-color: #fff;
+  margin-top: 12rem;
+  padding-top: 3rem;
+  padding-bottom: 4rem; }
+  @media (min-width: 768px) {
+    .service-block {
+      right: 0;
+      top: 0;
+      bottom: -3rem; } }
+
+.pagination {
+  padding-bottom: 3rem; }
+  .pagination .pag-link, .pagination .pag-span {
+    color: #162D63;
+    text-transform: uppercase;
+    font-weight: 400;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+  .pagination .next {
+    font-size: 1.2rem;
+    color: #162D63;
+    margin-left: 0.2rem; }
+  .pagination .prev {
+    font-size: 1.2rem;
+    color: #162D63;
+    margin-right: 0.2rem; }
+
+.form-group {
+  width: 80%; }
+
+.textarea-group {
+  width: 80%; }
+  @media (min-width: 768px) {
+    .textarea-group {
+      width: 60%; } }
+
+.submit-button {
+  background-color: transparent;
+  font-size: 1rem; }
+
+.input-border {
+  border: 1px solid #CCCCCC;
+  border-radius: 0.5rem; }

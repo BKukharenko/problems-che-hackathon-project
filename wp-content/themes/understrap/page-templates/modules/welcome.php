@@ -12,11 +12,11 @@
 		<?php endif; ?>
 
 		<?php if( get_sub_field('welcome_button') ): ?>
-			<div class="read-more text-center">
+			<div class="read-more text-center go-anchor">
 				<span class="d-block pb-3">
 					<?= get_sub_field('welcome_button') ?> 
 				</span>
-				<i class="fa fa-2x fa-chevron-circle-down go-anchor" aria-hidden="true"></i>
+				<i class="fa fa-2x fa-chevron-circle-down" aria-hidden="true"></i>
 			</div>
 		<?php endif; ?>
 		
