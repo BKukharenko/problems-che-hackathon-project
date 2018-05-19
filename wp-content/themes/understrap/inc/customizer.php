@@ -145,33 +145,6 @@ if ( ! function_exists( 'customize_footer_register' ) ) {
 				'section' => 'footer_text_section',
 				'settings' => 'copyright_text',
 			)));
-
-		$wp_customize -> add_setting('developed_text', array(
-			'default' => '',
-		));
-
-		$wp_customize -> add_control(
-			new WP_Customize_Control(
-				$wp_customize,
-				'developed_text', array(
-				'type'=>'text',
-				'label' => __('Custom developed text'),
-				'section' => 'footer_text_section',
-				'settings' => 'developed_text',
-			)));
-		$wp_customize -> add_setting('developed_link', array(
-			'default' => '',
-		));
-
-		$wp_customize -> add_control(
-			new WP_Customize_Control(
-				$wp_customize,
-				'developed_link', array(
-				'type'=>'text',
-				'label' => __('Custom developed text'),
-				'section' => 'footer_text_section',
-				'settings' => 'developed_link',
-			)));
 	}
 }
 add_action('customize_register', 'customize_footer_register');

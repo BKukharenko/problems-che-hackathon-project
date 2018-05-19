@@ -1,1 +1,10 @@
-// This is an empty scss file for your custom styles - Please add your super duper awesome mega design styles here
+//-----------------Problems Section ------------------------
+
+.section-subtitle {
+	color: $primary ;
+}
+
+.problems-name:link, .problems-name:visited {
+	font-size: 1.2rem;
+	color: $primary;
+}

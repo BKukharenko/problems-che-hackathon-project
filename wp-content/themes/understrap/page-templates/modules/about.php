@@ -1,6 +1,6 @@
 <?php $container = get_theme_mod('understrap_container_type'); ?>
 
-<section class="section-padding pt-md-5 pb-md-5">
+<section class="about-section section-padding pt-md-5 pb-md-5">
 	<div class="<?php echo esc_attr($container); ?> block-shadow pb-5">
 
 		<?php if( get_sub_field('about_title') ): ?>
@@ -10,7 +10,7 @@
 		<?php endif; ?>
 
 		<?php if( get_sub_field('about_description') ): ?>
-				<div class="about-project pt-3 pb-5 text-center m-auto">
+				<div class="about-project pt-5 pb-5 text-center m-auto">
 					<?= get_sub_field('about_description') ?> 
 				</div>
 		<?php endif; ?>

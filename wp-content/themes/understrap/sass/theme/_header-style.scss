@@ -10,13 +10,14 @@
 .menu-header {
 	background-color: $white;
 }
-.header-contact-link:link, .header-contact-link:visited, .top-header-i, .header-social-link{
+.header-contact-link:link, .header-contact-link:visited, .top-header-i, .header-social-link:link, .header-social-link:visited{
 	color: $white;
 }
 
 .header-social-link:link, .header-social-link:visited {
 	font-size: 1.4rem;
 }
+
 .navbar {
 	li {
 		margin-right: 1rem;

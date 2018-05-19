@@ -7,7 +7,7 @@ function add_object() {
 
 	$nonce = $_POST['nonce']; // берем переданную формой строку проверки
 	if ( ! wp_verify_nonce( $nonce, 'add_object' ) ) { // проверяем nonce код, второй параметр это аргумент из wp_create_nonce
-		$errors .= 'Данные отправлены с неправильной страницы '; // пишем ошибку
+		$errors .= 'Дані відправлені з неправильної сторінки '; // пишем ошибку
 	}
 
 	$title        = strip_tags( $_POST['post_title'] ); // запишем название поста
@@ -18,20 +18,20 @@ function add_object() {
 
 	// проверим заполненность, если пусто добавим в $errors строку
 	if ( ! $title ) {
-		$errors .= 'Не заполнено поле "Тайтл"';
+		$errors .= 'Поле "Адреса:" не заповнено';
 	}
 	if ( ! $content ) {
-		$errors .= 'Не заполнено поле "Пост контент"';
+		$errors .= 'Поле "Опишіть детальніше" не заповнено';
 	}
 
 	// далее проверим все ли нормально с картинками которые нам отправили
 	if ( $_FILES['img'] ) { // если была передана миниатюра
 		if ( $_FILES['img']['error'] ) {
-			$errors .= "Ошибка загрузки: " . $_FILES['img']['error'] . ". (" . $_FILES['img']['name'] . ") ";
+			$errors .= "Помилка завантаження: " . $_FILES['img']['error'] . ". (" . $_FILES['img']['name'] . ") ";
 		} // серверная ошибка загрузки
 		$type = $_FILES['img']['type'];
 		if ( ( $type != "image/jpg" ) && ( $type != "image/jpeg" ) && ( $type != "image/png" ) ) {
-			$errors .= "Формат файла может быть только jpg или png. (" . $_FILES['img']['name'] . ")";
+			$errors .= "Формат файлі може бути тільки jpg або png. (" . $_FILES['img']['name'] . ")";
 		} // неверный формат
 	}
 
@@ -43,9 +43,10 @@ function add_object() {
 		);
 		$post_id = wp_insert_post( $fields ); // добавляем пост в базу и получаем его id
 
-		update_post_meta( $post_id, 'username', $username ); // заполняем произвольное поле юзернейма
-		update_post_meta( $post_id, 'email', $email ); // заполняем произвольное поле типа мейл
-		update_post_meta( $post_id, 'ref-point', $ref_point ); // заполняем произвольное поле ориентира
+		update_field( 'field_5b000d08991ca', $username, $post_id);
+		update_field( 'field_5b000d1d991cb', $email, $post_id);
+		update_field( 'field_5b000d37991cd', $ref_point, $post_id);
+
 
 		if ( $_FILES['img'] ) { // если основное фото было загружено
 			$attach_id_img = media_handle_upload( 'img', $post_id ); // добавляем картинку в медиабиблиотеку и получаем её id
@@ -54,7 +55,8 @@ function add_object() {
 	}
 
 	if ($errors) wp_send_json_error($errors); // если были ошибки, выводим ответ в формате json с success = false и умираем
-	else wp_send_json_success('Все прошло отлично! Добавлено ID:'.$post_id); // если все ок, выводим ответ в формате json с success = true и умираем
+	else wp_send_json_success('Вашу скаргу прийнято до розгляду. Після розгляду вона буде опублікована. 
+	Дякуємо за те, що не байдужі до нашого міста!'); // если все ок, выводим ответ в формате json с success = true и умираем
 
 	die(); // умираем :)
 }
