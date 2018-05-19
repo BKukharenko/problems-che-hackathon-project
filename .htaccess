@@ -1,0 +1,12 @@
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /yulia/Hackathon/problems-che-hackathon-project/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /yulia/Hackathon/problems-che-hackathon-project/index.php [L]
+</IfModule>
+
+# END WordPress
