@@ -24,7 +24,7 @@
 	@media (min-width: 567px) {
 		width: 80%;
 	}
-	@media (min-width: 768px) {
+	@media (min-width: 992px) {
 		width: 50%;
 	}
 	p {
@@ -37,26 +37,17 @@
 	color: $primary;
 	width: 10rem;
 	margin: 1rem auto;
-/*	margin-top: 1rem;*/
-/*	margin-bottom: 1rem;
-	margin-right: auto;*/
 	background-color: $primary;
 	display: block;
-/*	@media (min-width: 768px) {
-		margin-left: 0;
-		margin-right: auto;
-	}*/
+
 }
-/*.about-project:after {
-	@extend .about-project:before;
-	@media (min-width: 768px) {
-		margin-right: 0;
-		margin-left:  auto;
-	}
-}*/
+
 
 .video {
 	@media (min-width: 768px) {
-	width: 50%;
-}
+		width: 65%;
+	}
+	@media (min-width: 992px) {
+		width: 50%;
+	}
 }

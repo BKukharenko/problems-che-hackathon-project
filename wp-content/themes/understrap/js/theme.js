@@ -3949,6 +3949,17 @@ jQuery(document).ready(function($){
         }, 800);
     });
 
+         $('a[href^="#"]').on('click', function (e) {
+                    e.preventDefault();
+
+                    var target = this.hash;
+                    var $target = $(target);
+
+                    $('html, body').animate({
+                        'scrollTop': $target.offset().top
+                    }, 1000, 'swing');
+                });
+
     function ajax_go(data, jqForm, options) { //ф-я перед отправкой запроса
         jQuery('#output').html('Надсилаю...'); // в див для ответа напишем "отправляем.."
         jQuery('#sub').attr("disabled", "disabled"); // кнопку выключим

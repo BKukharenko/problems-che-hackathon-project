@@ -31,10 +31,12 @@
 	.nav-link {
 		color: $primary;
 		padding: 0.5rem 1rem;
+		text-transform: uppercase;
 	}
 	.active {
 		a:link, a:visited, a:hover {
 			color: $elementscolor;
+			border-bottom: 1px solid $primary;
 		}
 	}
 }

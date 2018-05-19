@@ -1,6 +1,6 @@
 <?php $container = get_theme_mod('understrap_container_type'); ?>
 
-<section class="section-padding pt-md-5">
+<section id="steps-section" class="section-padding pt-md-5">
 	<div class="<?php echo esc_attr($container); ?> block-shadow pb-5 text-center">
 
 		<?php if( get_sub_field('steps_section_title') ): ?>
