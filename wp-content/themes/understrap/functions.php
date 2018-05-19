@@ -79,3 +79,9 @@ require get_template_directory() . '/inc/custom-post-type.php';
  * Load Pits Form Handler.
  */
 require get_template_directory() . '/inc/form-handler.php';
+
+/**
+ * Load Google Maps API.
+ */
+require get_template_directory() . '/inc/google-api.php';
+
