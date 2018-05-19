@@ -122,3 +122,152 @@ if ( ! function_exists( 'understrap_customize_preview_js' ) ) {
 	}
 }
 add_action( 'customize_preview_init', 'understrap_customize_preview_js' );
+
+
+if ( ! function_exists( 'customize_footer_register' ) ) {
+	function customize_footer_register($wp_customize)
+	{
+		$wp_customize -> add_section(
+			'footer_text_section', array(
+			'title' => __('Footer Site info'),
+		));
+
+		$wp_customize -> add_setting('copyright_text', array(
+			'default' => '',
+		));
+
+		$wp_customize -> add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'copyright_text', array(
+				'type'=>'text',
+				'label' => __('Custom copyright'),
+				'section' => 'footer_text_section',
+				'settings' => 'copyright_text',
+			)));
+
+		$wp_customize -> add_setting('developed_text', array(
+			'default' => '',
+		));
+
+		$wp_customize -> add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'developed_text', array(
+				'type'=>'text',
+				'label' => __('Custom developed text'),
+				'section' => 'footer_text_section',
+				'settings' => 'developed_text',
+			)));
+		$wp_customize -> add_setting('developed_link', array(
+			'default' => '',
+		));
+
+		$wp_customize -> add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'developed_link', array(
+				'type'=>'text',
+				'label' => __('Custom developed text'),
+				'section' => 'footer_text_section',
+				'settings' => 'developed_link',
+			)));
+	}
+}
+add_action('customize_register', 'customize_footer_register');
+
+if ( ! function_exists( 'customize_header_register' ) ) {
+	function customize_header_register($wp_customize)
+	{
+		$wp_customize -> add_section(
+			'header_text_section', array(
+			'title' => __('Header Site info'),
+		));
+
+		$wp_customize -> add_setting('tel-label', array(
+			'default' => '',
+		));
+
+		$wp_customize -> add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'tel-label', array(
+				'type'=>'text',
+				'label' => __('Phone number label'),
+				'section' => 'header_text_section',
+				'settings' => 'tel-label',
+			)));
+
+
+		$wp_customize -> add_setting('tel', array(
+			'default' => '',
+		));
+
+		$wp_customize -> add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'tel', array(
+				'type'=>'text',
+				'label' => __('Phone number'),
+				'section' => 'header_text_section',
+				'settings' => 'tel',
+			)));
+
+		$wp_customize -> add_setting('site', array(
+			'default' => '',
+		));
+
+		$wp_customize -> add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'site', array(
+				'type'=>'text',
+				'label' => __('site adress'),
+				'section' => 'header_text_section',
+				'settings' => 'site',
+			)));
+
+		$wp_customize -> add_setting('social-link', array(
+			'default' => '',
+		));
+
+		$wp_customize -> add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'social-link', array(
+				'type'=>'text',
+				'label' => __('Social link twitter'),
+				'section' => 'header_text_section',
+				'settings' => 'social-link',
+			)));
+
+		$wp_customize -> add_setting('social-link2', array(
+			'default' => '',
+		));
+
+		$wp_customize -> add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'social-link2', array(
+				'type'=>'text',
+				'label' => __('Social link instagram'),
+				'section' => 'header_text_section',
+				'settings' => 'social-link2',
+			)));
+
+		$wp_customize -> add_setting('social-link3', array(
+			'default' => '',
+		));
+
+		$wp_customize -> add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'social-link3', array(
+				'type'=>'text',
+				'label' => __('Social link facebook'),
+				'section' => 'header_text_section',
+				'settings' => 'social-link3',
+			)));
+	}
+}
+add_action('customize_register', 'customize_header_register');
