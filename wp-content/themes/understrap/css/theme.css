@@ -9582,6 +9582,7 @@ ul, ol {
   color: #162D63; }
 
 .pits-single-wrapper {
+  padding-top: 12rem;
   /* fixes potential theme css conflict */ }
   .pits-single-wrapper .acf-map {
     width: 100%;
@@ -9590,6 +9591,29 @@ ul, ol {
     margin: 20px 0; }
   .pits-single-wrapper .acf-map img {
     max-width: inherit !important; }
+  .pits-single-wrapper .pit-title {
+    font-size: 2rem; }
+  .pits-single-wrapper .complaint-done {
+    font-size: 1.5rem;
+    color: #009900; }
+    .pits-single-wrapper .complaint-done:before {
+      padding-right: 7px;
+      content: "\f046";
+      font-family: "FontAwesome"; }
+  .pits-single-wrapper .complaint-working {
+    font-size: 1.5rem;
+    color: #24469B; }
+    .pits-single-wrapper .complaint-working:before {
+      padding-right: 7px;
+      content: "\f110";
+      font-family: "FontAwesome"; }
+  .pits-single-wrapper .complaint-waiting {
+    font-size: 1.5rem;
+    color: #990000; }
+    .pits-single-wrapper .complaint-waiting:before {
+      padding-right: 7px;
+      content: "\f29c";
+      font-family: "FontAwesome"; }
 
 .footer-back {
   background-color: #162D63; }
