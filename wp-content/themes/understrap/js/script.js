@@ -1,4 +1,24 @@
-jQuery(document).ready(function ($) {
+
+jQuery(document).ready(function($){
+
+        jQuery('.div-on-click').hide().addClass("hidden-skills");
+
+        jQuery('.start').click(function() {
+            var $this = jQuery('.div-on-click');
+
+            if ($this.hasClass("hidden-skills")) {
+                jQuery('.div-on-click').slideDown(1500).removeClass("hidden-skills").addClass("visible-skills");
+
+            } else {
+                jQuery('.div-on-click').slideUp(1500).removeClass("visible-skills").addClass("hidden-skills");
+            }
+        });
+
+        jQuery('.go-anchor').click(function () {
+        jQuery('html, body').animate({
+            scrollTop: jQuery('.about-section').offset().top-150
+        }, 800);
+    });
 
     function ajax_go(data, jqForm, options) { //ф-я перед отправкой запроса
         jQuery('#output').html('Отправляем...'); // в див для ответа напишем "отправляем.."
@@ -29,4 +49,8 @@ jQuery(document).ready(function ($) {
         url: ajaxdata.url // куда слать форму, переменную с url мы определили вывели в нулевом шаге
     };
     add_form.ajaxForm(options); // подрубаем плагин jquery form с опциями на нашу форму
+
 });
+
+
+

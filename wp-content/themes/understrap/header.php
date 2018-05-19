@@ -25,7 +25,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 <body <?php body_class(); ?>>
 
-	<header class="fixed-header">
+	<header class="fixed-header block-shadow">
 		<ul class="<?php echo esc_attr($container); ?> pt-2 pb-2 d-flex flex-wrap justify-content-between align-items-center">
 			<?php if( get_theme_mod('tel-label') ): ?>
 				<li class="pt-2 pb-2">
