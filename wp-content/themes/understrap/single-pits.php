@@ -12,21 +12,26 @@ $container = get_theme_mod( 'understrap_container_type' ); ?>
 <?php if ( 'container' == $container ) : ?>
 <div class="container pits-single-wrapper">
 	<?php endif; ?>
+    <div class="block-shadow py-5 px-3">
     <div class="pit-wrapper row">
         <div class="image-wrapper col-lg-6 text-center">
 			<?php the_post_thumbnail() ?>
+            <div class="sharing justify-content-center justify-content-lg-start pt-3 row no-gutters align-items-center">
+                <span>Поділитись: </span>
+			<?= do_shortcode('[addtoany buttons="facebook,twitter,linkedin,google_plus"]') ?>
+            </div>
         </div>
         <div class="pit-content-wrapper col-lg-6">
-            <h2 class="pit-title text-center mb-3 mt-4 mt-lg-0"><?php the_title(); ?></h2>
+            <h2 class="pit-title text-center mb-3 mt-4 mt-lg-0 section-title"><?php the_title(); ?></h2>
 			<?php
 			if ( get_field( 'field_5b003fc63bf92' ) === 'consideration: На розгляді' ): ?>
-                <p class="complaint-waiting text-right">На розгляді</p>
+                <p class="complaint-waiting text-right pb-3">На розгляді</p>
 			<?php endif;
 			if ( get_field( 'field_5b003fc63bf92' ) === 'working: Опрацьовується' ): ?>
-                <p class="complaint-working text-right">Опрацьовується</p>
+                <p class="complaint-working text-right pb-3">Опрацьовується</p>
 			<?php endif;
 			if ( get_field( 'field_5b003fc63bf92' ) === 'done: Виконано' ): ?>
-                <p class="complaint-done text-right">Виконано</p>
+                <p class="complaint-done text-right pb-3">Виконано</p>
 			<?php endif; ?>
 
             <dl class="pit-information">
@@ -53,6 +58,7 @@ $container = get_theme_mod( 'understrap_container_type' ); ?>
             </div>
         </div>
     </div>
+    </div>
 
 	<?php
 
@@ -60,7 +66,7 @@ $container = get_theme_mod( 'understrap_container_type' ); ?>
 
 	if ( ! empty( $location ) ):
 		?>
-        <div class="acf-map">
+        <div class="acf-map my-5">
             <div class="marker" data-lat="<?php echo $location['lat']; ?>"
                  data-lng="<?php echo $location['lng']; ?>"></div>
         </div>
