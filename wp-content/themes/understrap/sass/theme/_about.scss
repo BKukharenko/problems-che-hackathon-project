@@ -1,0 +1,59 @@
+//------------About Section-------------
+
+.block-shadow {
+	box-shadow: 4px 4px 10px 4px #cbcbcb;
+}
+
+.section-title {
+	font-size: 2rem;
+	color: $primary;
+	text-transform: uppercase;
+}
+
+.section-title:after {
+	content: " ";
+	display: block;
+	background-color: $primary;
+	width: 15rem;
+	height: 1px;
+	margin: 1rem auto;
+}
+
+.about-project {
+	@media (min-width: 567px) {
+		width: 80%;
+	}
+	@media (min-width: 768px) {
+		width: 50%;
+	}
+	p {
+		padding-bottom: 2rem;
+	}
+}
+.about-project:after {
+	content: " ";
+	height: 1px;
+	color: $primary;
+	width: 10rem;
+	margin: 1rem auto;
+/*	margin-top: 1rem;*/
+/*	margin-bottom: 1rem;
+	margin-right: auto;*/
+	background-color: $primary;
+	display: block;
+/*	@media (min-width: 768px) {
+		margin-left: 0;
+		margin-right: auto;
+	}*/
+}
+/*.about-project:after {
+	@extend .about-project:before;
+	@media (min-width: 768px) {
+		margin-right: 0;
+		margin-left:  auto;
+	}
+}*/
+
+.video {
+	width: 50%;
+}

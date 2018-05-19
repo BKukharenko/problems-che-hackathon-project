@@ -25,57 +25,96 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 <body <?php body_class(); ?>>
 
-<div class="hfeed site" id="page">
-
-	<!-- ******************* The Navbar Area ******************* -->
-<div class="wrapper-fluid wrapper-navbar" id="wrapper-navbar" itemscope itemtype="http://schema.org/WebSite">
-
-		<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content', 'understrap' ); ?></a>
-
-		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-
-		<?php if ( 'container' == $container ) : ?>
-			<div class="container" >
-		<?php endif; ?>
-
-					<!-- Your site title as branding in the menu -->
-					<?php if ( ! has_custom_logo() ) { ?>
-
-						<?php if ( is_front_page() && is_home() ) : ?>
-
-							<h1 class="navbar-brand mb-0"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a></h1>
-							
-						<?php else : ?>
-
-							<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a>
-						
-						<?php endif; ?>
-						
-					
-					<?php } else {
-						the_custom_logo();
-					} ?><!-- end custom logo -->
-
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-				<!-- The WordPress Menu goes here -->
-				<?php wp_nav_menu(
-					array(
-						'theme_location'  => 'primary',
-						'container_class' => 'collapse navbar-collapse',
-						'container_id'    => 'navbarNavDropdown',
-						'menu_class'      => 'navbar-nav',
-						'fallback_cb'     => '',
-						'menu_id'         => 'main-menu',
-						'walker'          => new understrap_WP_Bootstrap_Navwalker(),
-					)
-				); ?>
-			<?php if ( 'container' == $container ) : ?>
-			</div><!-- .container -->
+	<header class="fixed-header">
+		<ul class="<?php echo esc_attr($container); ?> pt-2 pb-2 d-flex flex-wrap justify-content-between align-items-center">
+			<?php if( get_theme_mod('tel-label') ): ?>
+				<li class="pt-2 pb-2">
+					<i class="fa fa-whatsapp top-header-i"></i>
+					<span class="top-header-i pr-2 pl-1"> <?php echo get_theme_mod('tel-label'); ?> </span>
+					<a href="tel:<?php echo get_theme_mod('tel'); ?>" class="header-contact-link">
+						<?php echo get_theme_mod('tel'); ?>
+					</a>
+				</li>
 			<?php endif; ?>
+			<?php if( get_theme_mod('site') ): ?>
+				<li class="pt-2 pb-2">
+					<i class="fa fa-envelope top-header-i"></i>
+					<a href="mailto:<?php echo get_theme_mod('site'); ?>" class="header-contact-link">
+						<?php echo get_theme_mod('site'); ?>
+					</a>
+				</li>
+			<?php endif; ?>
+			<?php if( get_theme_mod('social-link') ): ?>
+				<li class="pt-2 pb-2">
+					<ul class="d-flex">
+						<li class="pr-2 pl-2">
+							<a href="<?php echo get_theme_mod('social-link'); ?>" class="header-social-link">
+								<i class="fa fa-twitter-square" aria-hidden="true"></i>
+							</a>
+						</li>
+					<?php endif; ?>
+					<?php if( get_theme_mod('social-link2') ): ?>
+						<li class="pr-2 pl-2">
+							<a href="<?php echo get_theme_mod('social-link2'); ?>" class="header-social-link">
+								<i class="fa fa-instagram" aria-hidden="true"></i>
+							</a>
+						</li>
+					<?php endif; ?>
+					<?php if( get_theme_mod('social-link3') ): ?>
+						<li class="pr-2 pl-2">
+							<a href="<?php echo get_theme_mod('social-link3'); ?>" class="header-social-link">
+								<i class="fa fa-facebook-square" aria-hidden="true"></i>
+							</a>
+						</li>
+					<?php endif; ?>
+				</ul>
+			</li>
+		</ul>
 
-		</nav><!-- .site-navigation -->
+			<a class="skip-link screen-reader-text sr-only" href="#"><?php esc_html_e('Skip to content',
+	'understrap'); ?></a>
+	<nav class="navbar  navbar-expand-lg navbar-light menu-header">
+		<?php if ('container' == $container) : ?>
+			<div class="container">
+			<?php endif; ?>
+			<?php if (!has_custom_logo()) { ?>
+			<?php if (is_front_page() && is_home()) : ?>
+				<h1 class="navbar-brand mb-0">
+					<a rel="home" href="<?php echo esc_url(home_url('/')); ?>"
+						title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>">
+						<?php bloginfo('name'); ?>
+					</a>
+				</h1>
+			<?php else : ?>
 
-	</div><!-- .wrapper-navbar end -->
+				<a class="navbar-brand" rel="home" href="<?php echo esc_url(home_url('/')); ?>"
+					title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>">
+					<?php bloginfo('name'); ?>
+				</a>
+
+			<?php endif; ?>
+			<?php } else {
+				the_custom_logo();
+			} ?>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+			aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<?php wp_nav_menu(
+			array(
+				'theme_location' => 'primary',
+				'container_class' => 'collapse navbar-collapse justify-content-end pb-3 pt-3',
+				'container_id' => 'navbarNavDropdown',
+				'menu_class' => 'navbar-nav',
+				'fallback_cb' => '',
+				'menu_id' => 'main-menu',
+				'walker' => new understrap_WP_Bootstrap_Navwalker(),
+			)
+			); ?>
+			<?php if ('container' == $container) : ?>
+			</div>
+		<?php endif; ?>
+	</nav>
+
+			</div>
+		</header>

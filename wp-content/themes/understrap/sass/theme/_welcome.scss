@@ -1,0 +1,38 @@
+//------------Welcome Section-------------------
+
+.welcome-back {
+	background-color: $elementscolor;
+}
+.welcome-section {
+	position: relative;
+	height: 100vh;
+}
+
+.section-main-title {
+	margin: auto 0;
+	font-size: 2rem;
+	color: $white;
+	text-transform: uppercase;
+	span {
+		font-size: 2rem;
+		margin-top: 1rem;
+	}
+}
+
+.section-span:before {
+	content: "";
+	height: 1px;
+	background-color: $white;
+	width: 12rem;
+	display: block;
+	margin: 0 auto 1rem auto;
+}
+
+.read-more {
+	text-transform: uppercase;
+	color: $white;
+	position: absolute;
+	bottom: 1rem;
+	right: 50%;
+	transform: translateX(50%);
+}

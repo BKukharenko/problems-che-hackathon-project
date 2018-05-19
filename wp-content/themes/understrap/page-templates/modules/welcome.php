@@ -1,21 +1,23 @@
 <?php $container = get_theme_mod('understrap_container_type'); ?>
 
-<section id="main" class="main-scroll" style="background-image: url(<?php echo get_theme_mod('welcome_image') ?>); background-repeat: no-repeat; background-position: center left;">
+<section class="welcome-back" style="background-image: url(<?= get_sub_field('welcome_image') ?>); background-repeat: no-repeat; background-position: center;">
 
-	<div class="<?php echo esc_attr($container); ?>">
+	<div class="<?php echo esc_attr($container); ?> d-flex welcome-section">
 
 		<?php if( get_sub_field('welcome_section_title') ): ?>
-				<h1>
+				<h1 class="col-12 col-md-6 d-flex flex-column section-main-title text-center">
 					<?= get_sub_field('welcome_section_title') ?>
-					<span class="d-block"> <?= get_sub_field('welcome_title') ?> </span>
+					<span class="d-inline-block section-span"> <?= get_sub_field('welcome_title') ?> </span>
 				</h1>
 		<?php endif; ?>
 
 		<?php if( get_sub_field('welcome_button') ): ?>
-				<span>
+			<div class="read-more text-center">
+				<span class="d-block pb-3">
 					<?= get_sub_field('welcome_button') ?> 
 				</span>
-				<i class="fa fa-angle-down go-anchor" aria-hidden="true"></i>
+				<i class="fa fa-2x fa-chevron-circle-down go-anchor" aria-hidden="true"></i>
+			</div>
 		<?php endif; ?>
 		
 	</div>
