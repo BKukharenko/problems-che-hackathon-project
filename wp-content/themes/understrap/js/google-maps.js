@@ -19,10 +19,13 @@
         var $markers = $el.find('.marker');
 
         // vars
+
         var args = {
             zoom		: 16,
             center		: new google.maps.LatLng(0, 0),
-            mapTypeId	: google.maps.MapTypeId.ROADMAP
+            mapTypeId	: google.maps.MapTypeId.ROADMAP,
+            draggable: false,
+
         };
 
         // create map
@@ -61,11 +64,12 @@
 
         // var
         var latlng = new google.maps.LatLng( $marker.attr('data-lat'), $marker.attr('data-lng') );
-
+        var image = 'https://15254b2dcaab7f5478ab-24461f391e20b7336331d5789078af53.ssl.cf1.rackcdn.com/www.vanillaforums.org/addons/icons/GKQC6XLE2QMJ.';
         // create marker
         var marker = new google.maps.Marker({
             position	: latlng,
-            map			: map
+            map			: map,
+            icon: image
         });
 
         // add to array
@@ -121,7 +125,7 @@
         {
             // set center of map
             map.setCenter( bounds.getCenter() );
-            map.setZoom( 16 );
+            map.setZoom( 15 );
         }
         else
         {
