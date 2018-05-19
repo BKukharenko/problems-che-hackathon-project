@@ -71,8 +71,26 @@ $container = get_theme_mod( 'understrap_container_type' ); ?>
                  data-lng="<?php echo $location['lng']; ?>"></div>
         </div>
 	<?php endif; ?>
+
+<!--Comments List -->
+    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+        <div class="text-center pt-5 pb-5">
+            <?php
+            if (comments_open() || get_comments_number()) :
+                comments_template();
+            endif;
+            ?>
+        </div>
+    <?php endwhile; ?>
+    <?php endif; ?>
+
+
 	<?php if ( 'container' == $container ) : ?>
 </div><!-- .container -->
 <?php endif; ?>
+
+
+
+
 
 <?php get_footer(); ?>

@@ -20,98 +20,106 @@ if ( post_password_required() ) {
 
 <div class="comments-area" id="comments">
 
-	<?php // You can start editing here -- including this comment! ?>
+	<?php ?>
 
 	<?php if ( have_comments() ) : ?>
 
 		<h2 class="comments-title">
-			
+
 			<?php
-				$comments_number = get_comments_number();
-				if ( 1 === (int)$comments_number ) {
-					printf(
-						/* translators: %s: post title */
-						esc_html_x( 'One thought on &ldquo;%s&rdquo;', 'comments title', 'understrap' ),
-						'<span>' . get_the_title() . '</span>'
-					);
-				} else {
-					printf( // WPCS: XSS OK.
-						/* translators: 1: number of comments, 2: post title */
-						esc_html( _nx(
-							'%1$s thought on &ldquo;%2$s&rdquo;',
-							'%1$s thoughts on &ldquo;%2$s&rdquo;',
-							$comments_number,
-							'comments title',
-							'understrap'
-						) ),
-						number_format_i18n( $comments_number ),
-						'<span>' . get_the_title() . '</span>'
-					);
-				}
+			$comments_number = get_comments_number();
+			if ( 1 === (int)$comments_number ) {
+				printf(
+				/* translators: %s: post title */
+					esc_html_x( '1 Коментар', 'comments title', 'understrap' ),
+					'<span>' . get_the_title() . '</span>'
+				);
+			} else {
+				printf(
+
+					esc_html( _nx(
+						'%1$s Коментар',
+						'%1$s Коментарів',
+						$comments_number,
+						'comments title',
+						'understrap'
+					) ),
+					number_format_i18n( $comments_number ),
+					'<span>' . get_the_title() . '</span>'
+				);
+			}
 			?>
 
-		</h2><!-- .comments-title -->
+		</h2>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through. ?>
 			
 			<nav class="comment-navigation" id="comment-nav-above">
 				
-				<h1 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'understrap' ); ?></h1>
-				
+				<h1 class="screen-reader-text"><?php esc_html_e( '', 'understrap' ); ?></h1>
+
 				<?php if ( get_previous_comments_link() ) { ?>
-					<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments',
-					'understrap' ) ); ?></div>
+					<div class="nav-previous"><?php previous_comments_link( __( '&larr; Попередні коментарі',
+							'understrap' ) ); ?></div>
 				<?php }
-					if ( get_next_comments_link() ) { ?>
-					<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;',
-					'understrap' ) ); ?></div>
+				if ( get_next_comments_link() ) { ?>
+					<div class="nav-next"><?php next_comments_link( __( 'Останні коментарі &rarr;',
+							'understrap' ) ); ?></div>
 				<?php } ?>
 
-			</nav><!-- #comment-nav-above -->
+			</nav>
 
-		<?php endif; // check for comment navigation. ?>
+		<?php endif;  ?>
 
-		<ol class="comment-list">
+
+		<ul class="comment-list text-left">
 
 			<?php
 			wp_list_comments( array(
-				'style'      => 'ol',
+
+				'type' => 'comment',
+				'callback' => 'custom_comment',
+
+				'style'      => 'ul',
 				'short_ping' => true,
+
+				'avatar_size' => '100',
+				'reply_text' => 'Відповісти'
 			) );
 			?>
 
-		</ol><!-- .comment-list -->
+		</ul>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through. ?>
-			
+
 			<nav class="comment-navigation" id="comment-nav-below">
-				
-				<h1 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'understrap' ); ?></h1>
-				
+
+				<h1 class="screen-reader-text"><?php esc_html_e( '', 'understrap' ); ?></h1>
+
 				<?php if ( get_previous_comments_link() ) { ?>
-					<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments',
-					'understrap' ) ); ?></div>
+					<div class="nav-previous"><?php previous_comments_link( __( '&larr; Попередні коментарі',
+							'understrap' ) ); ?></div>
 				<?php }
-					if ( get_next_comments_link() ) { ?>
-					<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;',
-					'understrap' ) ); ?></div>
+				if ( get_next_comments_link() ) { ?>
+					<div class="nav-next"><?php next_comments_link( __( 'Останні коментарі &rarr;',
+							'understrap' ) ); ?></div>
 				<?php } ?>
 
-			</nav><!-- #comment-nav-below -->
-			
-		<?php endif; // check for comment navigation. ?>
+			</nav>
 
-	<?php endif; // endif have_comments(). ?>
+		<?php endif;  ?>
+
+	<?php endif;  ?>
 
 	<?php
-	// If comments are closed and there are comments, let's leave a little note, shall we?
-	if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
+
+	if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'коментарів' ) ) :
 		?>
 
-		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'understrap' ); ?></p>
+		<p class="no-comments"><?php esc_html_e( 'Коментарі закриті', 'understrap' ); ?></p>
 
 	<?php endif; ?>
 
-	<?php comment_form(); // Render comments form. ?>
+	<?php comment_form(); ?>
 
-</div><!-- #comments -->
+</div>

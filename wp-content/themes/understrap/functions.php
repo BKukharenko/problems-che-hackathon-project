@@ -85,3 +85,7 @@ require get_template_directory() . '/inc/form-handler.php';
  */
 require get_template_directory() . '/inc/google-api.php';
 
+/**
+ * Load Google Maps API.
+ */
+require get_template_directory() . '/inc/comments-function.php';

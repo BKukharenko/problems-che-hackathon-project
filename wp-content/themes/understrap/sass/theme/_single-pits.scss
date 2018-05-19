@@ -1,3 +1,5 @@
+//-------------------Single Pits -----------------
+
 
 .pits-single-wrapper {
   padding-top: 12rem;
@@ -50,3 +52,122 @@
   }
 }
 }
+
+//-------------------------Comments List-----------------------------
+.comments-list {
+  text-align: center;
+  margin: auto;
+  @media (min-width: 768px) {
+    width: 70%;
+  }
+  @media (min-width: 992px) {
+    width: 50%;
+  }
+}
+.comments-title {
+  display: inline-block;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+
+}
+
+.avatar {
+  img {
+    width: 50px;
+    max-width: 50px;
+  }
+}
+
+.comments-text {
+  padding-left: 1rem;
+  p {
+    color: $bordercolor;
+    padding-bottom: 0.5rem;
+  }
+  .comment-author {
+    a:link, a:visited {
+      font-weight: bold;
+      color: $primary;
+    }
+  }
+}
+
+.comment-list {
+  padding-top: 2rem;
+  .children {
+    padding-left: 3rem;
+  }
+}
+
+//---------------- Leave Comment Form --------------------
+
+.leave-comment-form {
+  input, textarea {
+    color: $primary;
+    border-color: transparent;
+    border-bottom: 1px solid $bordercolor;
+    background-color: transparent;
+    padding-top: 1rem;
+    border-radius: unset;
+  }
+  input:focus, textarea:focus {
+    border-color: transparent;
+    border-bottom: 1px solid $bordercolor;
+    box-shadow: none;
+  }
+}
+
+.form-submit {
+  .comment-button {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    background-color: $primary;
+    color: $white;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 0.7rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+
+  }
+  .comment-button:hover {
+    background-color: $primary;
+    color: $bordercolor;
+    cursor: pointer;
+  }
+}
+
+.leave-comment-title {
+  display: inline-block;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+  color: $primary;
+  text-transform: uppercase;
+}
+
+.comment-reply-link {
+  color: $primary;
+  padding: 0.2rem 1rem;
+  border-radius: 2rem;
+  display: inline-block;
+  border: 1px solid $primary;
+}
+.comment-reply-link:hover {
+  color: $primary;
+  border: 1px solid $primary;
+}
+.comment-reply-title {
+  a:link, a:visited {
+    display: inline-block;
+    color: $primary;
+    padding: 0.2rem 1rem;
+    border-radius: 1rem;
+    border: 1px solid $primary;
+  }
+  a:hover {
+    border: 1px solid $primary;
+  }
+}
+

@@ -3930,16 +3930,16 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 jQuery(document).ready(function($){
 
-        jQuery('.div-on-click').hide().addClass("hidden-skills");
+        jQuery('.div-on-click').hide().addClass("hidden");
 
         jQuery('.start').click(function() {
             var $this = jQuery('.div-on-click');
 
-            if ($this.hasClass("hidden-skills")) {
-                jQuery('.div-on-click').slideDown(1500).removeClass("hidden-skills").addClass("visible-skills");
+            if ($this.hasClass("hidden")) {
+                jQuery('.div-on-click').slideDown(1500).removeClass("hidden").addClass("visible");
 
             } else {
-                jQuery('.div-on-click').slideUp(1500).removeClass("visible-skills").addClass("hidden-skills");
+                jQuery('.div-on-click').slideUp(1500).removeClass("visible").addClass("hidden");
             }
         });
 
@@ -3950,7 +3950,7 @@ jQuery(document).ready(function($){
     });
 
     function ajax_go(data, jqForm, options) { //ф-я перед отправкой запроса
-        jQuery('#output').html('Отправляем...'); // в див для ответа напишем "отправляем.."
+        jQuery('#output').html('Надсилаю...'); // в див для ответа напишем "отправляем.."
         jQuery('#sub').attr("disabled", "disabled"); // кнопку выключим
     }
     function response_go(out)  { // ф-я обработки ответа от wp, в out будет элемент success(bool), который зависит от ф-и вывода которую мы использовали в обработке(wp_send_json_error() или wp_send_json_success()), и элемент data в котором будет все что мы передали аргументом к ф-и wp_send_json_success() или wp_send_json_error()
