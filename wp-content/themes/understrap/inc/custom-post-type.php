@@ -36,7 +36,7 @@ function pits_post_type_register() {
 		'has_archive'        => true,
 		'hierarchical'       => false,
 		'menu_position'      => null,
-		'supports'           => array( 'title', 'page-attributes', 'editor', 'thumbnail', 'custom-fields')
+		'supports'           => array( 'title', 'page-attributes', 'editor', 'thumbnail', 'custom-fields', 'comments', 'revisions')
 	);
 
 	register_post_type( 'pits', $args );

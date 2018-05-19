@@ -15,31 +15,25 @@ add_filter( 'comment_form_default_fields', 'understrap_bootstrap_comment_form_fi
  *
  * @return array
  */
+function understrap_bootstrap_comment_form_fields($fields)
+{
+	$commenter = wp_get_current_commenter();
+	$req = get_option('require_name_email');
+	$aria_req = ($req ? " aria-required='true'" : '');
+	$html5 = current_theme_supports('html5', 'comment-form') ? 1 : 0;
+	$fields = array(
+		'author' => '<div class="column"><div class="form-group comment-form-author leave-comment-form">
+                    <label for="author" class="d-none">' . __("Ім'я", 'understrap') . ($req ? '' : '') . '</label> ' .
+			'<input class="form-control" id="author" name="author" type="text" value="' . esc_attr($commenter['comment_author']) . '" size="30" ' . $aria_req . ' placeholder="' . __("Ваше ім'я ...", 'understrap') . '"></div>',
+		'email' => '<div class="form-group comment-form-email leave-comment-form"><label for="email" class="d-none">' . __('Ваш Email',
+				'understrap') . ($req ? '' : '') . '</label> ' .
+			'<input class="form-control" id="email" name="email" ' . ($html5 ? 'type="email"' : 'type="text"') . ' value="' . esc_attr($commenter['comment_author_email']) . '" size="30" ' . $aria_req . ' placeholder="' . __('Bаш email...', 'understrap') . '"></div></div>',
+	);
 
-if ( ! function_exists( 'understrap_bootstrap_comment_form_fields' ) ) {
+	return $fields;
+}
 
-	function understrap_bootstrap_comment_form_fields( $fields ) {
-		$commenter = wp_get_current_commenter();
-		$req       = get_option( 'require_name_email' );
-		$aria_req  = ( $req ? " aria-required='true'" : '' );
-		$html5     = current_theme_supports( 'html5', 'comment-form' ) ? 1 : 0;
-		$fields    = array(
-			'author' => '<div class="form-group comment-form-author"><label for="author">' . __( 'Name',
-					'understrap' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
-			            '<input class="form-control" id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . '></div>',
-			'email'  => '<div class="form-group comment-form-email"><label for="email">' . __( 'Email',
-					'understrap' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
-			            '<input class="form-control" id="email" name="email" ' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . '></div>',
-			'url'    => '<div class="form-group comment-form-url"><label for="url">' . __( 'Website',
-					'understrap' ) . '</label> ' .
-			            '<input class="form-control" id="url" name="url" ' . ( $html5 ? 'type="url"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30"></div>',
-		);
-
-		return $fields;
-	}
-} // endif function_exists( 'understrap_bootstrap_comment_form_fields' )
-
-add_filter( 'comment_form_defaults', 'understrap_bootstrap_comment_form' );
+add_filter('comment_form_defaults', 'understrap_bootstrap_comment_form');
 
 /**
  * Builds the form.
@@ -48,15 +42,26 @@ add_filter( 'comment_form_defaults', 'understrap_bootstrap_comment_form' );
  *
  * @return mixed
  */
+function understrap_bootstrap_comment_form($args)
+{
+	$args ['class_form'] = 'd-flex flex-column comments-list';
+	$args['title_reply'] = '<h3 class="leave-comment-title d-inline-block">' . __('Залиште коментар', 'understrap') . '</h3>';
+	$args['comment_field'] = '<div class="form-group leave-comment-form">
+    <label for="comment" class="d-none">' . _x('Comment', 'noun', 'understrap') . (' <span class="required">*</span>') . '</label>
+    <textarea class="form-control" id="comment" name="comment" aria-required="true" cols="45" rows="4" placeholder="' . __('Коментар', 'understrap') . '"></textarea>
+    </div>';
+	$args['label_submit'] = __('Надіслати', 'understrap');
+	$args['class_submit'] = 'comment-button ml-auto'; // since WP 4.1.
+	return $args;
+}
 
-if ( ! function_exists( 'understrap_bootstrap_comment_form' ) ) {
+//Move comments textarea to bottom of the form
+function wpb_move_comment_field_to_bottom($fields)
+{
+	$comment_field = $fields['comment'];
+	unset($fields['comment']);
+	$fields['comment'] = $comment_field;
+	return $fields;
+}
 
-	function understrap_bootstrap_comment_form( $args ) {
-		$args['comment_field'] = '<div class="form-group comment-form-comment">
-	    <label for="comment">' . _x( 'Comment', 'noun', 'understrap' ) . ( ' <span class="required">*</span>' ) . '</label>
-	    <textarea class="form-control" id="comment" name="comment" aria-required="true" cols="45" rows="8"></textarea>
-	    </div>';
-		$args['class_submit']  = 'btn btn-secondary'; // since WP 4.1.
-		return $args;
-	}
-} // endif function_exists( 'understrap_bootstrap_comment_form' )
+add_filter('comment_form_fields', 'wpb_move_comment_field_to_bottom');

@@ -1,6 +1,6 @@
 <?php $container = get_theme_mod('understrap_container_type'); ?>
 
-<section class="section-padding pt-md-5 pb-md-5 div-on-click">
+<section class="section-padding pb-md-5 div-on-click position-relative">
 	<div class="<?php echo esc_attr($container); ?> block-shadow pb-5 text-center">
 		<?php if( get_sub_field('problems_section_title') ): ?>
 			<h2 class="section-title text-center pt-5">

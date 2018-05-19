@@ -11,7 +11,7 @@ $the_theme = wp_get_theme();
 $container = get_theme_mod( 'understrap_container_type' );
 ?>
 
-<div class="footer-back pt-2 pb-2">
+<footer class="footer-back pt-2 pb-2 mt-5">
 	<ul class="<?php echo esc_attr($container); ?> pt-2 pb-2 d-flex flex-wrap justify-content-between align-items-center">
 		<?php if( get_theme_mod('tel-label') ): ?>
 			<li class="pt-2 pb-2">
@@ -57,9 +57,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 		</li>
 	</ul>
 	
-</div>
+</footer>
 <?php if( get_theme_mod('copyright_text') ): ?>
-		<div class="copyright-block text-center">
+		<div class="copyright-block text-center py-2">
 			<span> &copy; </span>
 			<span> <?php echo get_theme_mod('copyright_text'); ?> </span>
 			<time datetime="<?php echo date('Y');?>"> <?php echo date('Y');?> </time>
