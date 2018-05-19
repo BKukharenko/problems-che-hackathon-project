@@ -9432,7 +9432,7 @@ ul, ol {
 .menu-header {
   background-color: #fff; }
 
-.header-contact-link:link, .header-contact-link:visited, .top-header-i, .header-social-link {
+.header-contact-link:link, .header-contact-link:visited, .top-header-i, .header-social-link:link, .header-social-link:visited {
   color: #fff; }
 
 .header-social-link:link, .header-social-link:visited {
@@ -9491,6 +9491,7 @@ ul, ol {
 
 .section-title {
   font-size: 2rem;
+  line-height: 2.2rem;
   color: #162D63;
   text-transform: uppercase; }
 
@@ -9500,7 +9501,7 @@ ul, ol {
   background-color: #162D63;
   width: 15rem;
   height: 1px;
-  margin: 1rem auto; }
+  margin: 1rem auto 0 auto; }
 
 @media (min-width: 567px) {
   .about-project {
@@ -9536,5 +9537,40 @@ ul, ol {
 		margin-left:  auto;
 	}
 }*/
-.video {
-  width: 50%; }
+@media (min-width: 768px) {
+  .video {
+    width: 50%; } }
+
+.start-button {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: #24469B;
+  padding: 0.5rem 1rem;
+  border: 1px solid #24469B;
+  border-radius: 0.5rem; }
+
+.steps-name {
+  color: #162D63;
+  font-size: 1.2rem; }
+
+.visible-steps {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap; }
+
+.hidden-steps {
+  display: none; }
+
+.section-subtitle {
+  color: #162D63; }
+
+.problems-name:link, .problems-name:visited {
+  font-size: 1.2rem;
+  color: #162D63; }
+
+.footer-back {
+  background-color: #162D63; }
+
+.copyright-block {
+  background-color: #fff; }
