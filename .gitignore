@@ -1,3 +1,4 @@
 .idea
 wp-content/themes/understrap/node_modules
 wp-config.php
+.htaccess
