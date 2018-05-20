@@ -21,11 +21,12 @@
 }
 
 .about-project {
+	color: $text-color;
 	@media (min-width: 567px) {
 		width: 80%;
 	}
 	@media (min-width: 992px) {
-		width: 50%;
+		width: 60%;
 	}
 	p {
 		padding-bottom: 2rem;
@@ -48,6 +49,6 @@
 		width: 65%;
 	}
 	@media (min-width: 992px) {
-		width: 50%;
+		width: 60%;
 	}
 }

@@ -14,13 +14,10 @@
 				<?= get_sub_field('about_description') ?> 
 			</div>
 		<?php endif; ?>
-
-		<?php if( get_sub_field('video_link') ): ?>
-			<div class="embed-responsive embed-responsive-16by9 video m-auto pb-5">
-				<?= get_sub_field('video_link') ?> 
-			</div>
-		<?php endif; ?>
+		<div class="video m-auto text-center">
+			<video class="w-100" autoplay loop> 
+				<source src="wp-content/themes/understrap/video/main-video.mp4">
+			</video>
+		</div>
 	</div>
-	
-</div>
 </section>
