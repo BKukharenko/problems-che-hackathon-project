@@ -89,3 +89,8 @@ require get_template_directory() . '/inc/google-api.php';
  * Load Google Maps API.
  */
 require get_template_directory() . '/inc/comments-function.php';
+
+/**
+ * Load Landscaping Form Handler.
+ */
+require get_template_directory() . '/inc/form-landscaping-handler.php';

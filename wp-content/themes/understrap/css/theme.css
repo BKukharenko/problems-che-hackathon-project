@@ -9519,16 +9519,16 @@ ul, ol {
   height: 1px;
   margin: 1rem auto 0 auto; }
 
-@media (min-width: 567px) {
-  .about-project {
-    width: 80%; } }
-
-@media (min-width: 992px) {
-  .about-project {
-    width: 50%; } }
-
-.about-project p {
-  padding-bottom: 2rem; }
+.about-project {
+  color: #777; }
+  @media (min-width: 567px) {
+    .about-project {
+      width: 80%; } }
+  @media (min-width: 992px) {
+    .about-project {
+      width: 60%; } }
+  .about-project p {
+    padding-bottom: 2rem; }
 
 .about-project:after {
   content: " ";
@@ -9545,7 +9545,7 @@ ul, ol {
 
 @media (min-width: 992px) {
   .video {
-    width: 50%; } }
+    width: 60%; } }
 
 .start-button {
   cursor: pointer;
@@ -9613,8 +9613,11 @@ ul, ol {
 
 .comments-title {
   display: inline-block;
-  font-size: 1rem;
-  padding: 1rem 2rem; }
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #162D63; }
 
 .avatar img {
   width: 50px;
@@ -9623,8 +9626,10 @@ ul, ol {
 .comments-text {
   padding-left: 1rem; }
   .comments-text p {
-    color: #CCCCCC;
-    padding-bottom: 0.5rem; }
+    color: #777;
+    padding-bottom: 0.5rem;
+    font-style: italic;
+    font-weight: 400; }
   .comments-text .comment-author a:link, .comments-text .comment-author a:visited {
     font-weight: bold;
     color: #162D63; }
